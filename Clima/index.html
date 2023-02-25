@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Fredoka+One&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c203eb8fdd.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="media/icono.ico">
+</head>
+<body class="sincarga" id="body">
+    <!-- preloader -->
+    <div class="box" id="preloader">
+        <div class="preloader">
+            <span class="circle"></span>
+            <span class="circle"></span>
+            <span class="circle"></span>
+            <span class="circle"></span>
+        </div>
+        </div>
+    </div>
+    <!--  -->
+    <div class="container desactivado" id="pagina">
+        <div class="form__container">
+            <form id="busqueda">
+                <input type="text" id="busqueda__input" placeholder="Busca una ciudad">
+            </form>
+        </div>
+        <div class="info__container">
+            <div class="info__switcher" >
+                <div class="switcher__boton celsius" id="boton">
+                    <div id="C">° C</div>
+                    <div id="K" class="desactivado">° K</div>
+                </div>
+            </div>
+            <div class="info" id="modal__boton">
+                <i class="fa-solid fa-info"></i>
+            </div>
+        </div>
+        <div class="clima__ciudad">
+            <div id="estado"><div class="cargando"></div></div>
+            <div class="ciudad__humedad">
+                <div class="humedad__texto" id="humedad"><div class="cargando3"></div></div>
+            </div>
+            <div class="ciudad__viento">
+                <div class="viento__texto" id="viento"><div class="cargando4"></div></div>
+            </div>
+        </div>
+        <div class="clima__min">
+            <i class="fa-solid fa-temperature-arrow-down"></i><div id="tempmin">MIN</div>
+        </div>
+        <div class="clima__max">
+            <i class="fa-solid fa-temperature-arrow-up"></i><div id="tempmax">MAX</div>
+        </div>
+        <div class="clima__principal">
+            <div id="principal__titulo">
+                <div class="cargando2"></div>
+            </div>
+            <div class="principal__nube" id="nubecontainer">
+                <i class="fa-solid fa-sun sol desactivado" id="sol"></i>
+                <i class="fa-solid fa-cloud nube desactivado" id="nube"></i>
+                <i class="fa-solid fa-wind viento desactivado" id="viento"></i>
+                <i class="fa-regular fa-snowflake nieve desactivado" id="nieve1"></i>
+                <i class="fa-regular fa-snowflake nieve2 desactivado" id="nieve2"></i>
+                <i class="fa-solid fa-bolt-lightning rayo desactivado" id="rayo"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal__container desactivado" id="modal__container">
+        <div class="modal" id="modal__card">
+            <div class="modal__header">
+                <button id="cerrar__modal">X</button>
+            </div>
+            <div class="modal__body">
+                <div class="modal__text">
+                    <p>Esta pagina o aplicacion web, fue creada con el fin de mostrar los conocimientos adquiridos para poder hacer una página.
+                    La siguiente funciona obteniendo la ciudad buscada por el cliente, y a través de la API "<a href="https://openweathermap.org/api">openweathermap.org</a>" regresa los datos sueltos que posteriormente son mostrados de una manera mucho mas facil y agradable de leer.</p>
+                </div>
+                
+                <div class="modal__tecnologias">
+                    <div class="tecnologias__texto">
+                        <h3>TECNOLOGIAS UTILIZADAS</h3>
+                    </div>
+                    <div class="tecnologias__iconos">
+                        <img width="50px"src="media/HTML.png" alt="HTML">
+                        <img width="50px"src="media/Css.png" alt="CSS">
+                        <img width="50px"src="media/JavaScript.png" alt="JavaScript">
+                    </div>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <div id="githubLogo"><a href="https://github.com/developmentMatias" target="_blank"><img src="media/githubLogo.png" alt="gitHub" width="26"></a></div>
+                <div id="gmail"><h2>matias.dvlp@gmail.com</h2></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,741 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+    padding: 30px 50px;
+    animation: entrar 1s;
+    overflow-x: hidden;
+    background-image: url(../media/fondo.jpg);
+    background-size: cover;
+}
+
+
+@keyframes entrar {
+    0% {transform: translateX(100vw);}
+    100% {transform: translateX(0vw);}
+}
+
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 60px 300px 180px;
+    gap: 20px;
+}
+
+.container > div {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.089);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px 2px rgba(158, 158, 158, 0.164);
+    user-select: none;
+} /* Acomodo el container y le doy estilo a los otros container */
+
+
+.form__container {
+    grid-row: 1;
+    grid-column: 1/3;
+}
+#busqueda {
+    height: 100%;
+}
+#busqueda__input {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border:none;
+    padding: 0px 15px;
+    font-size: 20px;
+    background-color: transparent;
+    outline: none;
+}/* Modifico el Input y su container */
+
+
+.clima__ciudad {
+    grid-column: 1/3;
+    grid-row: 2;
+    font-size: 32px;
+    display: flex;
+    font-family: 'Roboto Mono', monospace;
+    color:rgb(24, 24, 24);
+    min-width: 340px;
+    max-width: 550px;
+    text-transform: capitalize;
+    height: 300px;
+    position: relative;
+}
+#estado {
+    position: absolute;
+    text-shadow: 0px 4px 6px rgba(114, 114, 114, 0.452);
+}
+
+
+
+.ciudad__humedad {
+    width: 240px;
+}
+.ciudad__viento,
+.ciudad__humedad {
+    font-size: 24px;
+    align-self: flex-end;
+    text-shadow: 0px 4px 6px rgba(114, 114, 114, 0.452);
+}
+.ciudad__viento {
+    margin-left: 10%;
+    width: 280px;
+}
+
+
+
+
+
+
+.cargando3{
+    width: 100px;
+    height: 30px;
+    background-color: rgba(109, 108, 108, 0.199);
+    box-shadow: 0px 0px 10px rgba(139, 139, 139, 0.199);
+    border-radius: 5px;
+}
+.cargando4{
+    width: 180px;
+    height: 30px;
+    background-color: rgba(109, 108, 108, 0.199);
+    box-shadow: 0px 0px 10px rgba(139, 139, 139, 0.199);
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.cargando {
+    width: 280px;
+    height: 30px;
+    background-color: rgba(109, 108, 108, 0.199);
+    box-shadow: 0px 0px 10px rgba(139, 139, 139, 0.199);
+    border-radius: 5px;
+    position: absolute;
+}
+
+.clima__min {
+    grid-column: 1/2;
+}
+.clima__min,
+.clima__max {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 28px;
+    color: rgb(146, 145, 145);
+}/* Ubico y doy estilos a los cuadros de temperatura maxima y minima*/
+
+
+
+.info__container {
+    grid-column: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info__switcher {
+    width: 80px;
+    height: 30px;
+    border-radius: 100px;
+    box-shadow: 0px 4px 10px 2px rgba(31, 30, 30, 0.164);
+    background-color: rgba(255, 255, 255, 0.089);
+    margin: 0px 0px;
+    position: relative;
+}
+.switcher__boton {
+    width: 38px;
+    height: 38px;
+    box-shadow: inset 0px 0px 7px #ffffff73,  -3px 3px 7px rgba(94, 104, 121, .288);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -4px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: rgb(109, 108, 108);
+    background-color: #cacbce;
+}
+.info {
+    box-shadow: inset 0px 0px 7px #ffffff73,  -3px 3px 7px rgba(94, 104, 121, .288);
+    background-color: #cacbce;
+    padding: 10px 16px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+
+.clima__principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 3/5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    height: 500px;
+    width: 550px;
+    justify-content: space-between;
+}
+.cargando2 {
+    width: 200px;
+    height: 30px;
+    background-color: #ffffff2d;
+    box-shadow: 0px 0px 10px #ffffff48;;
+    border-radius: 5px;
+}
+#principal__titulo {
+    color: #ffffff;
+    font-family: 'Dosis', sans-serif;
+    font-size: 32px;
+}
+.principal__nube {
+    position: relative;
+    margin-bottom: 80px;
+}
+.nube{
+    font-size: 150px;
+    color: rgba(168, 168, 168, 0.966);
+    text-shadow: 0px 0px 40px rgba(0, 0, 0, 0.438);
+
+}
+.sol {
+    font-size: 150px;
+    color:rgba(206, 203, 30, 0.842);
+    text-shadow: 0px 0px 40px rgba(250, 239, 79, 0.438);
+    position: static;
+    top: -30px;
+    left: -20px;
+    z-index: -2;
+}
+.viento {
+    font-size: 150px;
+    color: rgba(109, 109, 109, 0.966);
+}
+/* Le doy lugar y apariencia al cuadro principal, que muestra el pais y la ciudad */
+
+
+/* ----------------JavaScript-----------------------*/
+
+.bloquear {
+    overflow: hidden;
+}
+/*Switcher*/
+.celsius {
+    animation: .3s izquierda;
+    left: 0px;
+}
+
+@keyframes izquierda {
+    0%{left: 42px;}
+    100%{left: 0px;}
+}
+.kelvin {
+    animation: .3s derecha;
+    left: 42px;
+}
+@keyframes derecha {
+    0%{left: 0px;}
+    100%{left: 42px;}
+}
+
+
+/*Efecto de Nieve*/
+.nieve {
+    position: absolute;
+    font-size: 26px;
+    color: rgb(167, 252, 255);
+    bottom: -30px;
+    left: 40px;
+    animation: lluvia1 1s infinite;
+}
+.nieve2 {
+    position: absolute;
+    font-size: 26px;
+    color: rgb(167, 252, 255);
+    bottom: -25px;
+    right: 50px;
+    animation: lluvia2 1.3s infinite;
+}
+
+/*--Efecto de Lluvia--*/
+.lloviendo::after {
+    content:"";
+    width: 4px;
+    height: 20px;
+    background-color: #00ffff;
+    position: absolute;
+    border-radius: 10px;
+    bottom: -20px;
+    left: 60px;
+    animation: lluvia2 1.8s infinite;
+}
+.lloviendo::before {
+    content:"";
+    width: 4px;
+    height: 24px;
+    background-color: #00ffff;
+    position: absolute;
+    border-radius: 10px;
+    bottom: -15px;
+    right: 50px;
+    animation: lluvia1 1.8s infinite;
+}
+/*Animacion*/
+@keyframes lluvia1 {
+    90%{
+        transform: translateY(10px);
+    }
+    100% {
+        background: none;
+        color: rgba(0, 0, 0, 0)
+    }
+}
+@keyframes lluvia2 {
+    90%{
+        transform: translateY(20px);
+    }
+    100% {
+        background: none;
+        color: rgba(0, 0, 0, 0)
+    }
+}
+/*Efecto de Rayo*/
+.rayo {
+    color:rgba(251, 255, 0, 0.788);
+    position: absolute;
+    font-size: 100px;
+    right: 0px;
+    left: 80px;
+    bottom: -70px;
+    z-index: -1;
+    transform: rotateZ(10deg);
+    
+    animation: flash 6s infinite;
+}
+@keyframes flash {
+    0% {
+        text-shadow: none;
+    }
+    35% {text-shadow:none}
+    40%{
+        text-shadow: 0px 0px 30px #b9b601a8;
+    }
+    45%{text-shadow: none;}
+    90% {
+        text-shadow: 0px 0px 50px #b9b601a8;
+    }
+    94% {text-shadow: none}
+}
+
+
+
+/*  Modal */
+.modal__container {
+    background-color: #4a4c4eab;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: #cacbce;
+    width: 60%;
+    height: 60%;
+    border-radius: 20px;
+    transform: translateX(100vw);
+    box-shadow: -3px -3px 7px #ffffff73, 10px 10px 5px rgba(41, 45, 53, 0.288);
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes modalAbrir {
+    0% {transform: translateX(100vw)}
+    100% {transform: translateX(0vw)}
+    
+}
+@keyframes modalCerrar {
+    0% {transform: translateX(0vw)}
+    100% {transform: translateX(100vw)}
+}
+
+
+.modal__header {
+    width: 100%;
+    height: 40px;
+    padding: 22px 4px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#cerrar__modal {
+    padding: 14px 20px 14px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 20px;
+    border-bottom-right-radius: 0px;
+    border: none;
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(41, 45, 53, 0.288);
+
+}
+
+.modal__body {
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(41, 45, 53, 0.288);
+    margin: 0px 0px 0px 20px;
+    padding: 20px;
+    border-radius: 5px;
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+.modal__text {
+    width: 60%;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.5rem;
+}
+.modal__text a{
+    color: rgb(52, 60, 99);
+    text-shadow: 5px 5px 10px rgb(52, 60, 99);
+}
+.modal__tecnologias {
+    font-size: 16px;
+    padding: 0px 15px 0px 15px;
+    border-left: solid rgb(224, 224, 224) 2px;
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.tecnologias__texto {
+    font-size: 1.2em;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0px auto 50px auto;
+    width: 100%;
+}
+.tecnologias__iconos {
+    display: flex;
+    flex-wrap: wrap;
+    user-select: none;
+    justify-content: center;
+}
+.tecnologias__iconos img {
+    margin: 0px 1rem 20px 1rem;
+}
+
+.modal__footer {
+    width: 100%;
+    display: flex;
+    padding: 0px 20px 30px 20px;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100px;
+    border-radius: 20px;
+    flex-wrap: wrap;
+}
+#githubLogo {
+    margin-inline: 10px;
+}
+#gmail {
+    width: auto;
+    margin-inline: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .8em;
+    padding-bottom: 5px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.desactivado {
+    display: none;
+}
+
+
+/*Pre Loader*/
+
+.sincarga {
+    overflow: hidden;
+    background-color: #dde1e7;
+    background-image: none;
+    z-index: 50;
+    width: 100vw;
+    height: 100vh;
+    animation: none;
+}
+
+.box{
+    width: 300px;
+    height: 300px;
+    background-color: #dde1e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:  -3px -3px 7px #ffffff73,  3px 3px 5px rgba(41, 45, 53, 0.288);
+    border-radius: 50%;
+}
+  
+.preloader{
+    height: 15px;
+    width: 105px;
+    display: flex;
+    position: relative;
+}
+.circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: move 500ms linear 0ms infinite;
+    margin-right: 30px;
+    background-color: rgb(0, 0, 0);
+}  
+.circle:first-child{
+    position: absolute;
+    top:0;
+    left:0;
+    animation: grow 500ms linear 0ms infinite;
+}
+    
+.circle:last-child{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+    animation: grow 500ms linear 0s infinite reverse;
+}
+
+
+  
+  @keyframes grow {
+    from {transform: scale(0,0); opacity: 0;}
+    to {transform: scale(1,1); opacity: 1;}
+  }
+  
+  @keyframes move {
+    from {transform: translateX(0px)}
+    to {transform: translateX(45px)}
+  }
+
+/* Media Query*/
+
+
+@media screen and (max-width: 950px){
+    .container {
+        grid-template-columns: 265px 265px;
+        grid-template-rows: 60px 60px 480px 180px 340px;
+        gap: 20px;
+    }
+    .container > div {
+        backdrop-filter: blur(5px);
+        background-color: rgba(51, 51, 51, 0.089);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 10px 2px rgba(158, 158, 158, 0.164);
+        user-select: none;
+    }
+    .cargando,
+    .cargando3,
+    .cargando4 {
+        background-color: rgba(85, 85, 85, 0.767);
+    }
+    .cargando2 {
+        background-color: #a7a7a7;
+    }
+    .info__container {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .form__container {
+        grid-row: 2;
+        grid-column: 1/3;
+    }
+    .clima__principal {
+        grid-row: 3;
+        grid-column: 1;
+        
+    }
+    .clima__min {
+        grid-row: 4;
+        grid-column: 2;
+        margin-top: 20px;
+    }
+    .clima__max {
+        grid-row: 4;
+        grid-column: 1;
+        margin-top: 20px;
+    }
+    .clima__ciudad {
+        grid-row: 5;
+        grid-column: 1/3;
+    }
+    .modal__container{
+        width: calc(100vw + 120px);
+        height: calc(100vh + 120px);
+        padding: 0px 60px;
+    }
+    .modal {
+        width: 80%;
+        height: 65%;
+    }
+    
+    .modal__body {
+        margin-left: 0px;
+    }
+    .modal__tecnologias {
+        font-size: 12px;
+    }
+    .modal__text {
+        font-size: 1.4rem;
+    }
+    body {
+        background-image: url(../media/fondo2.jpg);
+        height: 100vh;
+        background-size: 100vh;
+    }
+    .switcher__boton {
+        background-color: rgb(92, 92, 92);
+        color: rgb(0, 0, 0);
+    }
+    .info {
+        box-shadow: inset 0px 0px 7px #ffffff73,  3px 3px 7px rgba(0, 0, 0, 0.288);
+        background-color: rgb(92, 92, 92);
+    }
+    ::placeholder {
+        color: rgb(56, 56, 56);
+    }
+    #cerrar__modal {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    body {
+        animation: none;
+        background-size: 110vh;
+    }
+    .container {
+        grid-template-columns: 160px 160px;
+        grid-template-rows: 60px 60px 480px 180px 300px;
+        gap: 20px;
+        padding: 40px 10px;
+        margin: 0px auto;
+    }
+    .clima__principal {
+        max-width: 340px;
+    }
+    .info__container {
+        width: 340px;
+    }
+    .clima__ciudad {
+        max-width: 320px;
+        grid-column: 1/2;
+    }
+
+    .modal__body {
+        margin: 0px;
+        flex-direction: column-reverse;
+    }
+
+    .modal__text {
+        padding: 25px 0px 25px 0px;
+        height: 100%;
+        width: 100%;
+        display: block;
+        font-size: 1rem;
+    }
+    #gmail {
+        font-size: .6em;
+    }
+
+    .modal__container {
+        padding-right: 40px;
+    }
+    .modal__tecnologias {
+        font-size: 70%;
+        width: 100%;
+        border:none;
+        border-bottom: solid 2px rgb(224, 224, 224);
+        padding-bottom: 20px;
+    }
+    .tecnologias__texto {
+        margin-bottom: 20px;
+    }
+    .tecnologias__iconos {
+        width: 100%;
+    }
+    .tecnologias__iconos img {
+        margin-inline: 5px;
+        margin-bottom: 5px;
+    }
+    @keyframes modalAbrir {
+        0% {transform: translateY(-100vh)}
+        100% {transform: translateY(0vh)}
+        
+    }
+    @keyframes modalCerrar {
+        0% {transform: translateY(0vh)}
+        100% {transform: translateY(-100vh)}
+    }
+    @keyframes izquierda-derecha {
+        0% {
+            transform: translateX(-100vw);
+        }
+        100% {
+            transform: translateX(0vw);
+        }
+    }
+    @keyframes derecha-izquierda {
+        0% {
+            transform: translateX(100vw);
+        }
+        100% {
+            transform: translateX(0vw);
+        }
+    }
+    .info__container,
+    .form__container,
+    .clima__principal {
+        animation-delay: 1s;
+        animation: derecha-izquierda .4s;
+    }
+    .clima__min,
+    .clima__max,
+    .clima__ciudad {
+        animation: izquierda-derecha .4s;
+    }
+}
+
+
